@@ -14,6 +14,7 @@ const Footer = () => {
           {footerLinks.map((item, index) => (
             <a
               href={item.href}
+              target={item.target}
               key={index}
               className="text-[#1b6a88] font-bold hover:text-[#155d72]"
             >

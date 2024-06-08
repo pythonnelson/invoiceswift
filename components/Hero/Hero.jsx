@@ -1,12 +1,10 @@
-import React from "react";
-import Logo from "../Logo";
 import CustomButton from "../CustomButton";
 import { CloudDownload, MoveRight } from "lucide-react";
 import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="pt-36 pb-24 bg-[#1b6a88] text-[#f1f1f1] grid grid-cols-1 md:grid-cols-2 px-16 items-center gap-4">
+    <div className="py-24 bg-[#1b6a88] text-[#f1f1f1] grid grid-cols-1 md:grid-cols-2 px-16 items-center gap-4">
       <div className="flex flex-col space-y-4">
         <h2 className="flex flex-col text-3xl md:text-5xl font-bold">
           Invoice Generator

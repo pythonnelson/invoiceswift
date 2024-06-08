@@ -20,8 +20,9 @@ export function CustomAccordion() {
             type="single"
             className="max-w-5xl mx-auto w-full"
             collapsible
+            key={index}
           >
-            <AccordionItem value={faq.title} key={index}>
+            <AccordionItem value={faq.value}>
               <AccordionTrigger className="font-normal hover:no-underline">
                 {faq.title}
               </AccordionTrigger>

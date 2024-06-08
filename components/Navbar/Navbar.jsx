@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-[#1b6a88] text-[#f1f1f1] fixed top-0 right-0 w-full left-0 h-14 flex items-center justify-between px-4 sm:px-8 md:px-16">
+    <header className="bg-[#1b6a88] text-[#f1f1f1] fixed top-0 right-0 w-full left-0 h-16 flex items-center justify-between px-4 sm:px-8 md:px-16">
       <Logo />
 
       <nav className="hidden md:flex items-center gap-3">
