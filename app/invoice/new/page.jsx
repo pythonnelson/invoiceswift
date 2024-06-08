@@ -1,5 +1,8 @@
 "use client";
-import FormPreview from "@/components/FormPreview";
+
+import InvoiceForm from "@/components/InvoiceForm";
+import PreviewButton from "@/components/PreviewButton";
+import PreviewForm from "@/components/PreviewForm";
 import { Download, Mail, Printer, Receipt, Save } from "lucide-react";
 import { useState } from "react";
 
@@ -16,7 +19,7 @@ const Page = () => {
               className="flex items-center justify-center gap-1 bg-[#f1f1f1] shadow py-2 px-4 rounded-sm"
             >
               {preview ? (
-                <FormPreview />
+                <PreviewButton />
               ) : (
                 <div className="flex items-center justify-center gap-1">
                   <Receipt className="w-4 h-4" />
@@ -47,15 +50,7 @@ const Page = () => {
 
         {/* ===== FORM ===== */}
 
-        {preview ? (
-          <div className="bg-white w-full max-w-4xl border border-slate-200 rounded-lg shadow sm:p-6 md:p-8 mx-auto mb-6">
-            <h2>Invoice Preview</h2>
-          </div>
-        ) : (
-          <div className="bg-white w-full max-w-4xl border border-slate-200 rounded-lg shadow sm:p-6 md:p-8 mx-auto mb-6">
-            <h2>Invoice Form</h2>
-          </div>
-        )}
+        {preview ? <PreviewForm /> : <InvoiceForm />}
       </div>
     </div>
   );
