@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.invoice-section-cta {
+  height: 100vh;
+  background: url("/images/invoice.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 500px;
+  height: 600px;
+}
