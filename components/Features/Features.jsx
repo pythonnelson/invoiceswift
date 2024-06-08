@@ -4,9 +4,14 @@ import CustomButton from "../CustomButton";
 const Features = () => {
   return (
     <div className="py-8 md:py-16 px-4 md:px-16 bg-[#f1f1f1]">
-      <h1 className="text-center text-2xl md:text-4xl font-semibold mb-6">
-        Features of InvoiceSwift
-      </h1>
+      <div className="text-center">
+        <span className="text-xs text-white bg-[#0e516b] p-2 rounded-full">
+          Comming Soon !
+        </span>
+        <h1 className="text-2xl md:text-4xl font-semibold mt-3 mb-8">
+          Features of InvoiceSwift{" "}
+        </h1>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {IFeatures.map((feature, index) => {
           const Icon = feature.icon;
