@@ -135,3 +135,41 @@ export const prices = [
     href: "/invoices/create",
   },
 ];
+
+export const faqs = [
+  {
+    title: "How can I make an invoice for free?",
+    description:
+      "InvoiceSwift generator allows you to create invoices for free without taking much time. Head over to Refrens invoice generator and start creating invoices using pre-formatted invoice templates. You can add your logo, brand colors, and multiple invoice templates and use many more such features to keep your brand consistent.",
+  },
+  {
+    title: "Which is the best free invoice generator?",
+    description:
+      "InvoiceSwift is the best free invoice generator as you can create invoices for clients without paying a single amount. You can freely customize your fields and columns, download the invoice as PDF or send it directly via email, or share it via WhatsApp and within one click you can create a delivery challan, payment receipt, debit note and credit note. Not only this, you can create quotations, purchase orders, proforma invoices, payment receipts, delivery challan, and expense management and can also keep the records of your inventory.",
+  },
+  {
+    title: "Is this invoice generator really free?",
+    description:
+      "FREE! InvoiceSwift invoice generator is free for freelancers, agencies, small businesses, and entrepreneurs. You can generate 20 documents every year. Also, manage invoices and access free templates.",
+  },
+  {
+    title: "Can I generate a PDF invoice using this invoice generator?",
+    description:
+      "Yes, it is easy to download the PDF invoice using Refrens invoice maker. , clicking on the option of 'Download PDF' will make your invoice in PDF format. Moreover, you can also email the invoice, print the invoice, and send the invoice via WhatsApp or schedule for future dates.",
+  },
+  {
+    title: "Will there be any ads on the invoices?",
+    description:
+      "Not at all. Your invoices will carry no ads. On the free version, the documents will carry a small non-intrusive Refrens branding. It helps us spread the word and keep the free features going.\n Documents of Premium customers will carry only your business' branding.",
+  },
+  {
+    title: "Can I save my invoices in this online invoice generator?",
+    description:
+      "Yes. All the invoices created by you are saved online. You can access all the invoices anytime just by logging into your account.",
+  },
+  {
+    title: "What happens to my data when I want to leave?",
+    description:
+      "When you decide to leave InvoiceSwift, you have the option to download all your customer data, invoices, quotations, and other documents at any time. This ensures that you have access to your important business information even after discontinuing your use of the platform. Refrens prioritizes data security and allows users to retain their data for their records or for transitioning to another platform if needed.",
+  },
+];

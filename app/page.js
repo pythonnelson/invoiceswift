@@ -1,3 +1,4 @@
+import { CustomAccordion } from "@/components/Accordion/Accordion";
 import Banner from "@/components/Banner/Banner";
 import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Features/Features";
@@ -17,6 +18,7 @@ export default function Home() {
       <CallToAction />
       <Features />
       <Pricing />
+      <CustomAccordion />
     </main>
   );
 }
