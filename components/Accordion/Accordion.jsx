@@ -22,7 +22,9 @@ export function CustomAccordion() {
             collapsible
           >
             <AccordionItem value={faq.title} key={index}>
-              <AccordionTrigger>{faq.title}</AccordionTrigger>
+              <AccordionTrigger className="font-normal hover:no-underline">
+                {faq.title}
+              </AccordionTrigger>
               <AccordionContent className="leading-1 text-slate-500">
                 {faq.description}
               </AccordionContent>
