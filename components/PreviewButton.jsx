@@ -1,6 +1,6 @@
 import { ZoomIn } from "lucide-react";
 
-const FormPreview = () => {
+const PreviewButton = () => {
   return (
     <div className="flex items-center justify-center gap-1">
       <ZoomIn className="w-4 h-4" />
@@ -9,4 +9,4 @@ const FormPreview = () => {
   );
 };
 
-export default FormPreview;
+export default PreviewButton;
