@@ -2,6 +2,7 @@ import { CustomAccordion } from "@/components/Accordion/Accordion";
 import Banner from "@/components/Banner/Banner";
 import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Features/Features";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero/Hero";
 import InvoiceSectionCTA from "@/components/InvoiceSectionCTA";
 import Pricing from "@/components/Pricing/Pricing";
@@ -19,6 +20,7 @@ export default function Home() {
       <Features />
       <Pricing />
       <CustomAccordion />
+      <Footer />
     </main>
   );
 }

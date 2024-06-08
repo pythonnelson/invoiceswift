@@ -10,7 +10,7 @@ const InvoiceSectionCTA = () => {
           <CustomButton
             title="Create Your First Invoice"
             href="/invoice/new"
-            className="font-bold"
+            className="font-bold bg-[#1b6a88] p-3 rounded-md text-white"
           />
         </div>
       </div>

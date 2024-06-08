@@ -173,3 +173,26 @@ export const faqs = [
       "When you decide to leave InvoiceSwift, you have the option to download all your customer data, invoices, quotations, and other documents at any time. This ensures that you have access to your important business information even after discontinuing your use of the platform. Refrens prioritizes data security and allows users to retain their data for their records or for transitioning to another platform if needed.",
   },
 ];
+
+export const footerLinks = [
+  {
+    title: "About",
+    href: "/about",
+  },
+  {
+    title: "Premium",
+    href: "/premium",
+  },
+  {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
+    title: "FAQS",
+    href: "/faqs",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+  },
+];
