@@ -4,6 +4,7 @@ import {
   Columns2,
   Contact2,
   FileBox,
+  Gem,
   HomeIcon,
   Lock,
   Mail,
@@ -15,6 +16,7 @@ import {
   UploadCloud,
   User2,
   Users2,
+  Zap,
 } from "lucide-react";
 
 export const Navigation = [
@@ -112,5 +114,24 @@ export const IFeatures = [
     description:
       "We are always available to support our customers via email support & live chat support.",
     icon: MessageCircleQuestion,
+  },
+];
+
+export const prices = [
+  {
+    title: "Free Plan",
+    icon: Zap,
+    description:
+      "Create up to 50 invoices and other documents in a year - completely free. Invoices, Quotations, Pro Forma, Expenses and more. No hidden charges.",
+    linkTitle: "Create Free Invoice",
+    href: "/invoices/create",
+  },
+  {
+    title: "Premium Plan",
+    icon: Gem,
+    description:
+      "Manage your accounting at faster pace with additional premium features at minimal cost.",
+    linkTitle: "Explore Premium Features",
+    href: "/invoices/create",
   },
 ];
