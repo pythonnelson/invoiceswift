@@ -1,5 +1,5 @@
 import { IFeatures } from "@/constants";
-import React from "react";
+import CustomButton from "../CustomButton";
 
 const Features = () => {
   return (
@@ -7,13 +7,13 @@ const Features = () => {
       <h1 className="text-center text-2xl md:text-4xl font-semibold mb-6">
         Features of InvoiceSwift
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {IFeatures.map((feature, index) => {
           const Icon = feature.icon;
           return (
             <div
               key={index}
-              className="py-3 mr-4 shadow mb-6 px-2 hover:bg-fuchsia-500 hover:px-2 hover:rounded-md duration-300 transition-all"
+              className="py-3 shadow mb-6 px-3 hover:bg-fuchsia-500 hover:rounded-md duration-300 transition-all"
             >
               <div className="text-[#1b6a88] rounded-md py-3 px-4">
                 <Icon className="w-8 h-8" />
@@ -25,6 +25,13 @@ const Features = () => {
             </div>
           );
         })}
+      </div>
+      <div className="flex items-center justify-center">
+        <CustomButton
+          title="Create Your First Invoice"
+          href="/invoice/new"
+          className="flex items-center gap-1 font-bold bg-sky-950 text-white py-2 px-4 rounded-md hover:bg-fuchsia-500 hover:text-white duration-300 transition-all"
+        />
       </div>
     </div>
   );
