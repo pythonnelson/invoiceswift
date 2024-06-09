@@ -12,7 +12,7 @@ const Page = () => {
     <div className="bg-[#f1f1f1]">
       <div className="py-8 md:py-16 px-4 md:px-16">
         {/* ===== HEADER ===== */}
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-6 max-w-4xl mx-auto">
           <div className="flex gap-3">
             <button
               onClick={() => setPreview(!preview)}
