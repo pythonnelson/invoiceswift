@@ -48,19 +48,24 @@ export default function FormTable() {
         setTableData(updatedData)
     }
 
+    const subTotal = tableData.reduce((acc, row) => acc + row.unitPrice * row.quantity, 0);
+    const taxTotal = tableData.reduce((acc, row) => acc + ((row.unitPrice * row.quantity) * row.tax) / 100, 0);
+    const total = subTotal + taxTotal;
+
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-5">
         <div className="overflow-x-auto">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-white uppercase bg-black dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" className="px-4 py-3 w-1/4">Item Description</th>
-                    <th scope="col" className="px-4 py-3 w-1/12">Quantity</th>
-                    <th scope="col" className="px-4 py-3 w-1/12">Unit Price</th>
-                    <th scope="col" className="px-4 py-3 w-1/12">Tax (%)</th>
-                    <th scope="col" className="px-4 py-3 w-1/6">Amount</th>
-                    <th scope="col" className="px-4 py-3 w-1/12"></th>
-                </tr>
+                    <tr>
+                        <th scope="col" className="px-4 py-3 w-1/4">Item Description</th>
+                        <th scope="col" className="px-4 py-3 w-1/12">Quantity</th>
+                        <th scope="col" className="px-4 py-3 w-1/12">Unit Price</th>
+                        <th scope="col" className="px-4 py-3 w-1/12">Tax (%)</th>
+                        <th scope="col" className="px-4 py-3 w-1/6">Amount</th>
+                        <th scope="col" className="px-4 py-3 w-1/12"></th>
+                    </tr>
                 </thead>
                 <tbody className="text-end">
                 {tableData.map((row, index) => (
@@ -134,6 +139,28 @@ export default function FormTable() {
                     </tr>
                 ))}
                 </tbody>
+                {/* Footer Section */}
+                <tfoot>
+                <tr>
+                    <td colSpan="4"></td>
+                    <td className="px-4 py-2 text-end font-semibold">SubTotal:</td>
+                    <td className="px-4 py-2 text-end">
+                        {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(subTotal)}
+                    </td>
+                </tr>
+                <tr>
+                    <td colSpan="4"></td>
+                    <td className="px-4 py-2 text-end font-semibold">Tax:</td>
+                    <td className="px-4 py-2 text-end">{taxTotal}</td>
+                </tr>
+                <tr>
+                    <td colSpan="4"></td>
+                    <td className="px-4 py-2 text-end font-semibold">Total:</td>
+                    <td className="px-4 py-2 text-end underline">
+                        {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(total)}
+                    </td>
+                </tr>
+                </tfoot>
             </table>
         </div>
         <button onClick={addRow} type="button" className='flex items-center p-5'>
