@@ -24,6 +24,7 @@ const Page = () => {
     invoiceDate: "",
     dueDate: "",
   });
+  const [tableData, setTableData] = useState([])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,8 +35,20 @@ const Page = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    
+    const combinedData = {
+      ...formData,
+      tableData,
+    }
+    console.log(combinedData)
     setPreview(!preview)
   };
+
+  function updateTableData(newTableData) {
+    setTableData(newTableData)
+  }
+
+  console.log(tableData)
   return (
     <div className="bg-[#f1f1f1]">
       <div className="py-8 md:py-16 px-4 md:px-16">
@@ -213,7 +226,7 @@ const Page = () => {
             </div>
 
             {/* ===== FORM TABLE ==== */}
-            <FormTable />
+            <FormTable updateTableData={updateTableData} />
             <div className="flex justify-end">
               <button
                 type="submit"

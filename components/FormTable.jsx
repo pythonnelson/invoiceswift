@@ -3,7 +3,7 @@
 import { Minus, Plus } from 'lucide-react'
 import React, { useState } from 'react'
 
-export default function FormTable() {
+export default function FormTable({ updateTableData }) {
     const [tableData, setTableData] = useState([
         {
             itemDescription: "",
@@ -46,6 +46,7 @@ export default function FormTable() {
             }
         }
         setTableData(updatedData)
+        updateTableData(updatedData)
     }
 
     const subTotal = tableData.reduce((acc, row) => acc + row.unitPrice * row.quantity, 0);
@@ -141,25 +142,25 @@ export default function FormTable() {
                 </tbody>
                 {/* Footer Section */}
                 <tfoot>
-                <tr>
-                    <td colSpan="4"></td>
-                    <td className="px-4 py-2 text-end font-semibold">SubTotal:</td>
-                    <td className="px-4 py-2 text-end">
-                        {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(subTotal)}
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan="4"></td>
-                    <td className="px-4 py-2 text-end font-semibold">Tax:</td>
-                    <td className="px-4 py-2 text-end">{taxTotal}</td>
-                </tr>
-                <tr>
-                    <td colSpan="4"></td>
-                    <td className="px-4 py-2 text-end font-semibold">Total:</td>
-                    <td className="px-4 py-2 text-end underline">
-                        {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(total)}
-                    </td>
-                </tr>
+                    <tr>
+                        <td colSpan="4"></td>
+                        <td className="px-4 py-2 text-end font-semibold">SubTotal:</td>
+                        <td className="px-4 py-2 text-end">
+                            {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(subTotal)}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan="4"></td>
+                        <td className="px-4 py-2 text-end font-semibold">Tax:</td>
+                        <td className="px-4 py-2 text-end">{taxTotal}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="4"></td>
+                        <td className="px-4 py-2 text-end font-semibold">Total:</td>
+                        <td className="px-4 py-2 text-end underline">
+                            {new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2 }).format(total)}
+                        </td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
