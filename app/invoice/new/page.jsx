@@ -69,7 +69,7 @@ const Page = () => {
               <Save className="w-4 h-4" />
               Save Online
             </button>
-            <button className="flex items-center justify-center gap-1 bg-blue-500 text-white py-2 px-4 rounded-sm shadow">
+            <button className="flex items-center justify-center gap-1 bg-black text-white py-2 px-4 rounded-sm shadow">
               <Mail className="w-4 h-4" />
               Send
             </button>
