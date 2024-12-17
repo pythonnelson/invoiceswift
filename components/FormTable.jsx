@@ -31,6 +31,9 @@ export default function FormTable() {
         setTableData(updatedData)
     }
 
+    function handleInputChange(index, e){
+
+    }
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-5">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -56,7 +59,7 @@ export default function FormTable() {
                     </th>
                 </tr>
             </thead>
-            <tbody className='text-end'>
+            <tbody className='text-end overflow-x-hidden'>
                 {
                     tableData.map((row, index) => {
                         return (
@@ -67,6 +70,7 @@ export default function FormTable() {
                                     placeholder="Item Description"
                                     name="itemDescription"
                                     value={row.itemDescription}
+                                    onChange={(e) =>handleInputChange(index, e)}
                                     className="border-none odd:bg-white even:bg-gray-50 w-50 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
                                 />
                             </th>
@@ -76,6 +80,7 @@ export default function FormTable() {
                                     placeholder="0"
                                     name="quantity"
                                     value={row.quantity}
+                                    onChange={(e) =>handleInputChange(index, e)}
                                     className="border-none odd:bg-white even:bg-gray-50 w-12 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
                                 />
                             </td>
@@ -85,6 +90,7 @@ export default function FormTable() {
                                     placeholder="500"
                                     name="unitPrice"
                                     value={row.unitPrice}
+                                    onChange={(e) =>handleInputChange(index, e)}
                                     className="border-none odd:bg-white even:bg-gray-50 w-12 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
                                 />
                             </td>
@@ -94,6 +100,7 @@ export default function FormTable() {
                                     placeholder="3"
                                     name="tax"
                                     value={row.tax}
+                                    onChange={(e) =>handleInputChange(index, e)}
                                     className="border-none odd:bg-white even:bg-gray-50 w-12 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
                                 />
                             </td>
@@ -103,6 +110,7 @@ export default function FormTable() {
                                     placeholder="3000"
                                     name="amount"
                                     value={row.amount}
+                                    onChange={(e) =>handleInputChange(index, e)}
                                     readOnly
                                     className="border-none odd:bg-white even:bg-gray-50 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
                                 />
@@ -116,12 +124,12 @@ export default function FormTable() {
                         )
                     })
                 }
+            </tbody>
+        </table>
                 <button onClick={addRow} type="button" className='flex items-center p-5'>
                     <Plus className='text-sky-500 w-4 h-4' width={10} /> 
                     Add Line Item
                 </button>
-            </tbody>
-        </table>
     </div>
   )
 }
