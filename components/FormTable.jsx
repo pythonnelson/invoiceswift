@@ -32,104 +32,114 @@ export default function FormTable() {
     }
 
     function handleInputChange(index, e){
+        const { name, value } = e.target;
+        const updatedData = [...tableData]
+        updatedData[index][name] = value
 
+        if(name === "quantity" || name === "unitPrice") {
+            const quantity = parseFloat(updatedData[index].quantity)
+            const price = parseFloat(updatedData[index].unitPrice)
+            if (!isNaN(quantity) && !isNaN(price)) {
+                updatedData[index].amount = (quantity * price).toFixed(2)
+            } else {
+                updatedData[index].amount = ""
+            }
+        }
+        setTableData(updatedData)
     }
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg mb-5">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-white uppercase bg-black dark:bg-gray-700 dark:text-gray-400">
+        <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead className="text-xs text-white uppercase bg-black dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" className="px-6 py-3">
-                        Item Description
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                        Quantity
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                        Unit Price
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                        Tax (%)
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                        Amount
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                        
-                    </th>
+                    <th scope="col" className="px-4 py-3 w-1/4">Item Description</th>
+                    <th scope="col" className="px-4 py-3 w-1/12">Quantity</th>
+                    <th scope="col" className="px-4 py-3 w-1/12">Unit Price</th>
+                    <th scope="col" className="px-4 py-3 w-1/12">Tax (%)</th>
+                    <th scope="col" className="px-4 py-3 w-1/6">Amount</th>
+                    <th scope="col" className="px-4 py-3 w-1/12"></th>
                 </tr>
-            </thead>
-            <tbody className='text-end overflow-x-hidden'>
-                {
-                    tableData.map((row, index) => {
-                        return (
-                            <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <input
-                                    type="text"
-                                    placeholder="Item Description"
-                                    name="itemDescription"
-                                    value={row.itemDescription}
-                                    onChange={(e) =>handleInputChange(index, e)}
-                                    className="border-none odd:bg-white even:bg-gray-50 w-50 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
-                                />
-                            </th>
-                            <td className="px-6 py-4">
-                                <input
-                                    type="number"
-                                    placeholder="0"
-                                    name="quantity"
-                                    value={row.quantity}
-                                    onChange={(e) =>handleInputChange(index, e)}
-                                    className="border-none odd:bg-white even:bg-gray-50 w-12 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
-                                />
-                            </td>
-                            <td className="px-6 py-4">
-                                <input
-                                    type="number"
-                                    placeholder="500"
-                                    name="unitPrice"
-                                    value={row.unitPrice}
-                                    onChange={(e) =>handleInputChange(index, e)}
-                                    className="border-none odd:bg-white even:bg-gray-50 w-12 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
-                                />
-                            </td>
-                            <td className="px-6 py-4">
-                                <input
-                                    type="number"
-                                    placeholder="3"
-                                    name="tax"
-                                    value={row.tax}
-                                    onChange={(e) =>handleInputChange(index, e)}
-                                    className="border-none odd:bg-white even:bg-gray-50 w-12 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
-                                />
-                            </td>
-                            <td className="px-6 py-4">
-                                <input
-                                    type="number"
-                                    placeholder="3000"
-                                    name="amount"
-                                    value={row.amount}
-                                    onChange={(e) =>handleInputChange(index, e)}
-                                    readOnly
-                                    className="border-none odd:bg-white even:bg-gray-50 focus:outline-none hover:outline-1 focus:border-[#1b6a88] mb-3"
-                                />
-                            </td>
-                            <td className="px-6 py-4">
-                                <button onClick={() => removeRow(index)} type='button'>
-                                    <Minus className='text-red-500' />
-                                </button>
-                            </td>
-                        </tr>
-                        )
-                    })
-                }
-            </tbody>
-        </table>
-                <button onClick={addRow} type="button" className='flex items-center p-5'>
-                    <Plus className='text-sky-500 w-4 h-4' width={10} /> 
-                    Add Line Item
-                </button>
+                </thead>
+                <tbody className="text-end">
+                {tableData.map((row, index) => (
+                    <tr
+                    key={index}
+                    className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                    >
+                    <td className="px-4 py-2">
+                        <input
+                        type="text"
+                        placeholder="Item Description"
+                        name="itemDescription"
+                        value={row.itemDescription}
+                        onChange={(e) => handleInputChange(index, e)}
+                        className="border rounded w-full px-2 py-1 text-gray-900 focus:outline-none focus:ring focus:ring-[#1b6a88]"
+                        />
+                    </td>
+                    <td className="px-4 py-2">
+                        <input
+                        type="number"
+                        placeholder="0"
+                        name="quantity"
+                        value={row.quantity}
+                        onChange={(e) => handleInputChange(index, e)}
+                        className="border rounded w-full px-2 py-1 text-gray-900 focus:outline-none focus:ring focus:ring-[#1b6a88]"
+                        />
+                    </td>
+                    <td className="px-4 py-2">
+                        <input
+                        type="number"
+                        placeholder="500"
+                        name="unitPrice"
+                        value={row.unitPrice}
+                        onChange={(e) => handleInputChange(index, e)}
+                        className="border rounded w-24 px-2 py-1 text-gray-900 focus:outline-none focus:ring focus:ring-[#1b6a88]"
+                        />
+                    </td>
+                    <td className="px-4 py-2">
+                        <input
+                        type="number"
+                        placeholder="3"
+                        name="tax"
+                        value={row.tax}
+                        max="99"
+                        onChange={(e) => {
+                            const value = e.target.value;
+                            if (value === '' || (Number(value) >= 0 && Number(value) <= 99)) {
+                              handleInputChange(index, e);
+                            }
+                          }}
+                        // onChange={(e) => handleInputChange(index, e)}
+                        className="border rounded w-full px-2 py-1 text-gray-900 focus:outline-none focus:ring focus:ring-[#1b6a88]"
+                        />
+                    </td>
+                    <td className="px-4 py-2">
+                        <input
+                        type="number"
+                        placeholder="3000"
+                        name="amount"
+                        value={row.amount}
+                        onChange={(e) => handleInputChange(index, e)}
+                        readOnly
+                        className="border rounded w-full px-2 py-1 text-gray-900 focus:outline-none focus:ring focus:ring-[#1b6a88]"
+                        />
+                    </td>
+                    <td className="px-4 py-2 text-center">
+                        <button onClick={() => removeRow(index)} type="button">
+                        <Minus className="text-red-500" />
+                        </button>
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+        <button onClick={addRow} type="button" className='flex items-center p-5'>
+            <Plus className='text-sky-500 w-4 h-4' width={10} /> 
+            Add line item
+        </button>
     </div>
   )
 }

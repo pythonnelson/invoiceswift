@@ -2,7 +2,6 @@
 
 import FileInput from "@/components/FileInput";
 import FormTable from "@/components/FormTable";
-// import InvoiceForm from "@/components/InvoiceForm";
 import PreviewButton from "@/components/PreviewButton";
 import PreviewForm from "@/components/PreviewForm";
 import { Download, Mail, Printer, Receipt, Save } from "lucide-react";
@@ -29,6 +28,7 @@ const Page = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    console.log(e)
   };
 
   const handleFormSubmit = (e) => {
